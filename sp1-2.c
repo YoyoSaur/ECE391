@@ -1,3 +1,8 @@
+/* HI TA
+ * WTF is the star
+ */
+
+
 struct op_list {
 	struct op_list *next;
 	int type;
@@ -7,28 +12,48 @@ struct op_list {
 
 int eval(struct op_list *, int){ 
 	//store bp somewhere
-	//sp = bp
+	//bp = sp
 	//store b
-	//b = bp+8
-	//a = [bp+12]		//something is 4 bits/bytes?
+	//b = 8+m[b]
+	//a = m[ 12+m[b] ]		//something is 4 bits/bytes?
 
-	//call pool
-	//b= mem[b]
-	//
-	//if 0
-	//b is useless now
-	//else
-		//loop
-		// d = mem[4+b]
-		// cmp d - 2
-		// if d > 2
-			//Td
-			//
-		// else
-			// go to mem[table + d*4]
+	//pool
+		//b = m[ m[b] ]
+
+		//if 0
+			//pop to b
+		//else
+			//loop
+				// d = m[ 4+m[b] ]
+				// if d > 2 (unsigned)
+					//Td
+					// b *= 8
+					// LOOP FROM POOL
+				// else *** TODO: WTF DO WE DO HERE
+					// go to mem[table + d*4] (probably reading 0,1,2 from table array)
+
+		//i think we just leave
+		//n return
 
 
 
-	//i think we just leave
+		//table: arr of functions?
+		//T0
+			// a -= m[ 8+m[b] ]
+			// LOOP FROM POOL
+		//T1
+			//c = m[ 8+m[b] ]
+			//c = c & x1f
+			//d = 1
+			//d = d >> m[ cl ] ***TODO : OK WTF IS CL
+			//d = !d
+			//a = a & d
+			//LOOP FROM POOL
+		//T2
+			//push a
+			// TODO: SOMETHING ABOUT STAR
+			// sp += 4
+			// LOOP FROM POOLt
 
+	n + mem[r1] + mem[r2]*c
 }
