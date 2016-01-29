@@ -27,11 +27,13 @@ for_loop:
 	jnb return
 	testl %ebx, %ecx # sets flags
 	jne bit_shift
+	pushl %eax
 	pushl %edx
 	call *jump_table(, %ecx, 4) # array lookup
 	/* does this set return value */
 	addl 4, %esp # move stack pointer down
 	/* restore registers */
+	popl %eax
 	popl %ebx
 	popl %edx
 	popl %ecx
