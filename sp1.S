@@ -1,3 +1,8 @@
+	/* TODO:
+		ask TA about data types, maybe words for int?
+		ask TA about stack
+		ask TA about jumps
+	*/
 	/* Important people: Ben Miller */
 	/* Not so much: Jett, Youseff, Ted */
 	/* Not at all: Grant */
