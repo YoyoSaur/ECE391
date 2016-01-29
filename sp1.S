@@ -1,7 +1,12 @@
-	/* Important people: Ben Miller */
-	/* Not so much: Jett, Youseff, Ted */
-	/* Not at all: Grant */
+	/* TODO:
+		ask TA about data types, maybe words for int?
+		ask TA about stack
+		ask TA about jumps
+	*/
+	/* Important people: Ben Miller, Grant Everett */
+	/* Not so much: Jett Wang, Brandon Youseff, Ted */
 	/* save registers */
+	/* linear plan of attack good practice in x86 */
 	pushl %ecx
 	pushl %edx
 	pushl %ebx
@@ -11,7 +16,7 @@
 	popl %edx # for arg
 	popl %eax # for bitmask
 	/* reset stack pointer */
-	subl $18, %esp
+	subl $20, %esp
 	/* init registers */
 	xorl %ecx, %ecx # for i counter
 	xorl %ebx, %ebx # for bit
@@ -24,6 +29,7 @@ for_loop:
 	jne bit_shift
 	pushl %edx
 	call *jump_table(, %ecx, 4) # array lookup
+	/* does this set return value */
 	addl 4, %esp # move stack pointer down
 	/* restore registers */
 	popl %ebx
@@ -32,6 +38,7 @@ for_loop:
 	ret
 bit_shift:
 	shll $1, %ebx
+	incl %ecx
 	jmp for_loop
 return:
 	/* restore registers */
