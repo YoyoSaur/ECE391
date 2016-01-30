@@ -15,14 +15,14 @@ struct op_list {
 };
 
 int eval(struct op_list *, int){ 
-	//store bp somewhere
+	//push bp to stack
 	//bp = sp
-	//store b
+	//push b to stack
 	//b = 8+m[b]
 	//a = m[ 12+m[b] ]		//something is 4 bits/bytes?
 
 	//POOL
-		//b = m[ m[b] ]
+		//b = 0?
 
 		//if 0
 			//pop to b
