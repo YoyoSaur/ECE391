@@ -15,16 +15,16 @@ struct op_list {
 };
 
 int eval(struct op_list *, int){ 
-	//push bp to stack
-	//bp = sp
+	//push bp to stack      //save bp and b on stack
+	//bp = sp		//bp = sp
 	//push b to stack
-	//b = 8+m[b]
+	//b = 8+m[b]		//move b 2? instructions down?
 	//a = m[ 12+m[b] ]		//something is 4 bits/bytes?
 
 	//POOL
-		//b = 0?
+		//b = 0?	
 
-		//if 0
+		//if 0		//while m[b]&m[b] != 0?  {
 			//pop to b
 		//else
 			//LOOP
@@ -34,7 +34,16 @@ int eval(struct op_list *, int){
 						// a *= m[ 8+m[b] ]
 						// LOOP FROM POOL
 				// else
-					// go to table[d] (simplified all bit mults)
+					// go to table[d] (simplified all bit mults) 
+						//if 0
+							//T0
+							//
+						//if 1
+							//T1
+						//if 2
+							//T2
+						//}
+							
 		//return
 
 
