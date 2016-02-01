@@ -50,4 +50,8 @@ int eval(struct op_list * curr, int eax){
     ebx = ebx.next; //movl (%ebx), %ebx
   }
   return eax;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
