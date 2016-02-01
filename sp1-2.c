@@ -1,69 +1,53 @@
-/* HI GROUP
- * make sure all this is translated correctly before trying to make sense of it
- * 1. x86 -> human language		; approved by Jett & Branden
- * 2. *pending* human language -> logically simplified human language
- */
+// Benjamin J Miller
+// Ted Culbertson
+// Grant Everett
+// Liuren Wang (Jettairlines)
+// Olivia Mitchell
+// Branden Youssef
 
-//	n + mem[r1] + mem[r2]*c
-//	32bit arch
-
-struct op_list {
+typedef struct op_list {
 	struct op_list *next;
 	int type;
 	int val;
 	int (*opfunc)(int c);
 };
 
-int eval(struct op_list *, int){ 
-	//push bp to stack      //save bp and b on stack
-	//bp = sp		//bp = sp
-	//push b to stack
-	//b = 8+m[b]		//move b 2? instructions down?
-	//a = m[ 12+m[b] ]		//something is 4 bits/bytes?
-
-	//POOL
-		//b = 0?	
-
-		//if 0		//while m[b]&m[b] != 0?  {
-			//pop to b
-		//else
-			//LOOP
-				// d = m[ 4+m[b] ]
-				// if d > 2 (unsigned)
-					//Td
-						// a *= m[ 8+m[b] ]
-						// LOOP FROM POOL
-				// else
-					// go to table[d] (simplified all bit mults) 
-						//if 0
-							//T0
-							//
-						//if 1
-							//T1
-						//if 2
-							//T2
-						//}
-							
-		//return
-
-
-
-		//table: is array of functions
-		//T0
-			// a -= m[ 8+m[b] ]
-			// LOOP FROM POOL
-		//T1
-			//c = m[ 8+m[b] ]
-			//c = c & x1f
-			//d = 1
-			//d = d >> m[ last 8 bits(1/4) of c ]
-			//d = !d
-			//a = a & d
-			//LOOP FROM POOL
-		//T2
-			//push a
-			//call func at m[ m[b]+12 ] 
-			//sp += 4
-			//LOOP FROM POOL
-
+int eval(struct op_list * curr, int eax){
+  // ebx is op_list
+  // eax is int
+  // skip eval not important
+  // deref first function
+  if(curr == NULL)
+    return 0;
+  op_list ebx = *curr;
+  while(ebx != NULL){ //pool
+    int edx = ebx.type;
+    
+    if(edx > 2)
+    {
+      //Td
+      eax = eax * ebx.val;
+    }
+    else if(edx == 2)
+    {
+      //T2
+      *(ebx.opfunc)(eax);
+    }
+    else if(edx == 1)
+    {
+      //T1
+      int ecx = ebx.val;
+      ecx = ecx & 0x1f;
+      edx = 1;
+      edx = edx << ecx;
+      eax = eax & ~edx;
+    }
+    else{
+      //T0
+      eax = eax - ebx.val;
+    }
+    //pool
+    ebx = ebx.next; //movl (%ebx), %ebx
+  }
+  return eax;
 }
