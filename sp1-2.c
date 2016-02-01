@@ -36,11 +36,11 @@ int eval(struct op_list * curr, int eax){
     else if(edx == 1)
     {
       //T1
-      int ecx = ebx.val;
-      ecx = ecx & 0x1f;
-      edx = 1;
-      edx = edx << ecx;
-      eax = eax & ~edx;
+      //int ecx = ebx.val;
+      //ecx = ecx & 0x1f;
+      //edx = 1;
+      //edx = 1 << ecx;
+      eax = eax & ~(1 << (ebx.val & 0x1f));
     }
     else{
       //T0
