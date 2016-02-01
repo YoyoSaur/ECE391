@@ -14,13 +14,6 @@
 	/* 16 for three on stack and return address */
 	movl $16(%esp), %edx # for arg
 	movl $20(%esp), %eax # for bitmask
-	/* move stack pointer */
-	#addl $12, %esp
-	/* get arguments */
-	#popl %edx # for arg
-	#popl %eax # for bitmask
-	/* reset stack pointer */
-	#subl $20, %esp
 	/* init registers */
 	xorl %ecx, %ecx # for i counter
 	xorl %ebx, %ebx # for bit
