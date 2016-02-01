@@ -1,12 +1,11 @@
-	/* TODO:
-		ask TA about data types, maybe words for int?
-		ask TA about stack
-		ask TA about jumps
-	*/
-	/* Important people: Ben Miller, Grant Everett */
-	/* Not so much: Jett Wang, Brandon Youseff, Ted */
+	/* TODO:*/
+	/*  Benjamin J Miller
+	 Ted Culbertson
+	 Grant Everett
+	 Liuren Wang (Jettairlines)
+	 Olivia Mitchell
+	 Branden Youssef */
 	/* save registers */
-	/* linear plan of attack good practice in x86 */
 	pushl %ecx
 	pushl %edx
 	pushl %ebx
