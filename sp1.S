@@ -1,6 +1,6 @@
 	/*
 	 Benjamin J Miller bjmillr2
- 	 Ted Culbertson
+ 	 Ted Culbertson tculber2
  	 Grant Everett geveret2
  	 Liuren Wang lwang108
  	 Olivia Mitchell ozmitch2
