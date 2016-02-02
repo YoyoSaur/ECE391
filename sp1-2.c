@@ -1,9 +1,10 @@
-// Benjamin J Miller
+// Benjamin J Miller bjmillr2
 // Ted Culbertson
-// Grant Everett
-// Liuren Wang (Jettairlines)
-// Olivia Mitchell
-// Branden Youssef
+// Grant Everett geveret2
+// Liuren Wang lwang108
+// Olivia Mitchell ozmitch2
+// Branden Youssef byousse2
+// Sindhu Gudala gudala2
 
 typedef struct op_list {
 	struct op_list *next;
@@ -11,43 +12,35 @@ typedef struct op_list {
 	int val;
 	int (*opfunc)(int c);
 };
-
-int eval(struct op_list * curr, int eax){
-  // ebx is op_list
-  // eax is int
-  // skip eval not important
-  // deref first function
-  if(curr == NULL)
+//switch gets turned into jump table
+//better names
+//everything can be in one line
+//ebx should be a pointer
+int eval(struct op_list * head, int inst){ //probably the head
+  if(head == NULL)
     return 0;
-  op_list ebx = *curr;
-  while(ebx != NULL){ //pool
-    int edx = ebx.type;
-    
-    if(edx > 2)
-    {
-      //Td
-      eax = eax * ebx.val;
-    }
-    else if(edx == 2)
-    {
-      //T2
-      *(ebx.opfunc)(eax);
-    }
-    else if(edx == 1)
-    {
-      //T1
-      int ecx = ebx.val;
-      ecx = ecx & 0x1f;
-      edx = 1;
-      edx = edx << ecx;
-      eax = eax & ~edx;
-    }
-    else{
-      //T0
-      eax = eax - ebx.val;
-    }
-    //pool
-    ebx = ebx.next; //movl (%ebx), %ebx
+  op_list curr = head; //is dis gud
+  while(curr != NULL){ //pool
+    int type = curr->type;
+
+    switch (type) {
+			case 0:
+	      //T0
+	      inst = inst - curr->val;
+				break;
+			case 1:
+	      //T1
+	      inst = inst & ~((cur->val & 0x1f) << 1);
+				break;
+	  	case 2:
+	      //T2
+	      return inst = (curr->opfunc)(inst);
+				break;
+			default:
+	      inst = inst * curr->val;
+				break;
+		}
+    curr = curr->next; //is this right
   }
-  return eax;
+  return inst;
 }
