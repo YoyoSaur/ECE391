@@ -1,11 +1,11 @@
 	/*
-	 Benjamin J Miller bjmillr2
- 	 Ted Culbertson tculber2
- 	 Grant Everett geveret2
- 	 Liuren Wang lwang108
- 	 Olivia Mitchell ozmitch2
- 	 Branden Youssef byousse2
- 	 Sindhu Gudala gudala2 */
+	/* Benjamin J Miller bjmillr2 */
+ 	/* Ted Culbertson tculber2 */
+ 	/* Grant Everett geveret2 */
+ 	/* Liuren Wang lwang108 */
+ 	/* Olivia Mitchell ozmitch2 */
+ 	/* Branden Youssef byousse2 */
+ 	/* Sindhu Gudala gudala2 */
 	/* save registers */
 	pushl %ecx
 	pushl %edx
