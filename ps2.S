@@ -1,3 +1,11 @@
+/* Benjamin J Miller bjmillr2 */
+/* Ted Culbertson tculber2 */
+/* Grant Everett geveret2 */
+/* Liuren Wang lwang108 */
+/* Olivia Mitchell ozmitch2 */
+/* Branden Youssef byousse2 */
+/* Sindhu Gudala gudala2 */
+
 PROBLEM 1
 a) pixel panning node (bit 5 on attribute node) = 1
 The Line Compare field in the VGA, of which bit 9 is in the Maximum Scan Line Register,
