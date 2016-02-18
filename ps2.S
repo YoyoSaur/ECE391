@@ -59,7 +59,3 @@ Conveys that a reset occurred
 c)
 The function is called from an interrupt context, so it
 cannot acquire any semaphores nor take up too much time.
-
-Problem 3
-a)
-The minimum number of locks is one. This would be bad because it would be slow and/or wasteful.
